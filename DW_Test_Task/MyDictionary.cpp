@@ -22,7 +22,7 @@ void MyDictionary<Key, Value>::set(const Key& key, const Value& value)
 
 	if (search == std::cend(_data))
 	{
-		_data.emplace(key, value);
+		_data.insert(key, value);
 	}
 	else
 	{

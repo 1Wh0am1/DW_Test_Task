@@ -18,16 +18,7 @@ const Value& MyDictionary<Key, Value>::get(const Key& key) const
 template <class Key, class Value>
 void MyDictionary<Key, Value>::set(const Key& key, const Value& value)
 {
-	const auto search = _data.find(key);
-
-	if (search == std::cend(_data))
-	{
-		_data.insert(key, value);
-	}
-	else
-	{
-		search->second = value;
-	}
+	_data.insert({key,value});
 }
 
 /*A method that checks for the presence of a key in the data*/

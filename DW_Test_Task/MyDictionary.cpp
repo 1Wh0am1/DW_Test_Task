@@ -14,11 +14,15 @@ const Value& MyDictionary<Key, Value>::get(const Key& key) const
 	return search->second;
 }
 
+
 /*The method responsible for setting the value in the data*/
 template <class Key, class Value>
 void MyDictionary<Key, Value>::set(const Key& key, const Value& value)
 {
-	_data.insert({key,value});
+	if (!_data.insert({ key,value }).second)
+	{
+		throw my_not_found_exception<std::string>("Key already exists");
+	}
 }
 
 /*A method that checks for the presence of a key in the data*/
